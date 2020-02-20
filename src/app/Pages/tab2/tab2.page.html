@@ -1,0 +1,30 @@
+<ion-header class="ion-no-border" [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Historial
+    </ion-title>
+
+    <ion-buttons slot="end" >
+      <ion-button color="primary">
+        <ion-icon name="send-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-list>
+    <ion-item detail *ngFor="let save of dataLocal.saved" (click)="openInBrowser(save)" > 
+      <ion-icon color="primary" slot="start" name="{{save.icon}}"></ion-icon>
+
+      <ion-label>
+        <h2>{{save.text}}</h2>
+        <p>{{save.created | date: 'medium' }}</p>
+      </ion-label>
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>
